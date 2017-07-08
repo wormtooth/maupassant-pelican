@@ -1,0 +1,14 @@
+<div class="widget">
+    <div class="widget-title"><i class="fa fa-star-o"> Tags</i></div>
+    <div class="tagcloud">
+    {% if tag_cloud %}
+    {% for tag in tag_cloud %}
+    <a href="/{{ tag.0.url }}" style="font-size: {{ 18-2*tag.1 }}px">{{ tag.0 }}</a>
+    {% endfor %}
+    {% else %}
+    {% for tag, _ in tags[:100] %}
+    <a href="/{{ tag.url }}" style="font-size: 12px">{{ tag }}</a>
+    {% endfor %}
+    {% endif %}
+    </div>
+</div>

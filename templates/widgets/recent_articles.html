@@ -1,0 +1,10 @@
+<div class="widget">
+    <div class="widget-title"><i class="fa fa-file-o"> Recent</i></div>
+    <ul class="post-list">
+    {% for article in articles[:10] %}
+        <li class="post-list-item">
+        <a class="post-list-link" href="/{{ article.url }}">{{ article.title}}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>

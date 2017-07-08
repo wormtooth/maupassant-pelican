@@ -1,0 +1,9 @@
+{% if LINKS %}
+<div class="widget">
+    <div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div>
+    {% for title, url in LINKS %}
+    <ul></ul>
+    <a href="{{ url }}" title="{{ title }}" target="_blank">{{ title }}</a>
+    {% endfor %}
+</div>
+{% endif %}

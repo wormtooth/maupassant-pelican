@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} | {{ SITENAME }}{% endblock title %}
+
+{% block content %}
+<div class="post">
+    <h1 class="post-title">{{ article.title }}</h1>
+    <div class="post-meta">{{ article.date|strftime('%b %d, %Y') }}
+    {% if category %}
+    <span> | </span> <span>{{ category }}</span>
+    {% endif %}
+    </div>
+    {% if DISQUS_SHORTNAME and article.comments|lower != 'false' %}
+    <a data-disqus-identifier="{{ article.url }}/" href="/{{ article.url }}#disqus_thread" class="disqus-comment-count"></a>
+    {% endif %}
+    <div class="post-content">
+        {{ article.content }}
+
+        {% if article.tags %}
+        <div class="tags">
+        {% for tag in article.tags %}
+        <a href="/{{ tag.url }}">{{ tag }}</a>
+        {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if article.prev_article or article.next_article %}
+        <div class="post-nav">
+        {% if article.prev_article %}
+            <a href="/{{ article.prev_article.url }}" class="pre">{{ article.prev_article.title }}</a>
+        {% endif %}
+        {% if article.next_article %}
+            <a href="/{{ article.next_article.url }}" class="next">{{ article.next_article.title }}</a>
+        {% endif %}
+        </div>
+        {% endif %}
+
+        {% if article.comments|lower != 'false' %}
+            {% include "partials/comment.html" %}
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ SITENAME }}{% endblock title %}
+
+{% block content %}
+<div class="post">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-content">
+        {{ page.content }}
+    </div>
+    {% if page.comments|lower == 'true' %}
+        {% include "partials/comment.html" %}
+    {% endif %}
+</div>
+{% endblock content %}

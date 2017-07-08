@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html land="{{ DEFAULT_LANG }}">
+
+<head>
+    {% block head %}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    {% if SITE_DESCRIPTION %}
+    <meta name="description" content="{{SITE_DESCRIPTION}}" />
+    {% endif %}
+    <title>
+    {% block title %}
+    {{ SITENAME }}{% if SITESUBTITLE %} | {{ SITESUBTITLE }}{% endif %}
+    {% endblock title %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="/theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/css/pygment.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/6.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css" />
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="Shortcut Icon" type="image/x-icon" href="/theme/favicon.ico" />
+    {% endblock head %}
+</head>
+
+<body>
+<div class="body_container">
+    <div id="header">
+        <div class="site-name">
+            <a id="logo" href="/."> {{ SITENAME }} </a>
+            {% if SITESUBTITLE %}
+            <p class="description"> {{ SITESUBTITLE }} </p>
+            {% endif %}
+        </div>
+        <div id="nav-menu">
+            {% set MENUS_TMP = MENUITEMS or (('Home', '.', 'fa-home'), ('Archive', 'archives.html', 'fa-archive')) %}
+            {% set MENUS_URL = MENUS_TMP|map(attribute=1)|list%}
+            {% for title, link, fa in MENUS_TMP %}
+            {% if link==output_file or (link=='.' and output_file not in MENUS_URL) %}
+            <a href="/{{ link }}" class="current"><i class="fa {{ fa }}"> {{ title }}</i></a>
+            {% else %}
+            <a href="/{{ link }}"><i class="fa {{ fa }}"> {{ title }}</i></a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div id="layout" class="pure-g">
+        <div class="pure-u-1 pure-u-md-3-4"><div class="content_container">
+            {% block content %}
+            {% endblock content %}
+        </div></div>
+        <div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar">
+            {% for item in WIDGETS or ('search', 'category', 'tag', 'recent_articles', 'recent_comments', 'links') %}
+                {% include 'widgets/{}.html'.format(item) %}
+            {% endfor %}
+        </div></div>
+        <div class="pure-u-1 pure-u-md-3-4">
+            {% include "partials/footer.html" %}
+        </div>
+    </div>
+
+    {% include "partials/totop.html" %}
+    {% include "partials/after_footer.html" %}
+</body>

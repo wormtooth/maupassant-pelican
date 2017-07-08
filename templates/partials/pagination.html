@@ -1,0 +1,33 @@
+{% if articles_previous_page or articles_next_page %}
+<div class="page-navigator">
+{% if articles_previous_page %}
+    <a class="extend prev" rel="prev" href="{{ articles_previous_page.url }}">Previous</a>
+{% endif %}
+{% set n = articles_paginator.num_pages %}
+{% set m = articles_page.number %}
+{% if m < 5 %}
+{% for i in range(1, m) %}
+    <a class="page-number" href="/{{articles_paginator.page(i).url}}">{{ i }}</a>
+{% endfor %}
+{% else %}
+    <a class="page-number" href="/{{articles_paginator.page(1).url}}">{{ 1 }}</a>
+    <span class="space">...</span>
+    <a class="page-number" href="/{{articles_paginator.page(m-2).url}}">{{ m-2 }}</a>
+    <a class="page-number" href="/{{articles_paginator.page(m-1).url}}">{{ m-1 }}</a>
+{% endif %}
+    <span class="page-number current">{{ m }}</span>
+{% if m+4 > n %}
+{% for i in range(m+1, n+1) %}
+    <a class="page-number" href="/{{articles_paginator.page(i).url}}">{{ i }}</a>
+{% endfor %}
+{% else %}
+    <a class="page-number" href="/{{articles_paginator.page(m+1).url}}">{{ m+1 }}</a>
+    <a class="page-number" href="/{{articles_paginator.page(m+2).url}}">{{ m+2 }}</a>
+    <span class="space">...</span>
+    <a class="page-number" href="/{{articles_paginator.page(n).url}}">{{ n }}</a>
+{% endif %}
+{% if articles_next_page %}
+    <a class="extend next" rel="next" href="{{ articles_next_page.url }}">Next</a></nav>
+{% endif %}
+</div class="page-navigator">
+{% endif %}

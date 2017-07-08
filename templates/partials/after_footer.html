@@ -1,0 +1,21 @@
+<script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script>
+<script type="text/javascript" src="/theme/js/fancybox.js" async></script>
+<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css" />
+
+{% if MATHJAX %}
+<script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  TeX: {
+    equationNumbers: { autoNumber: "AMS" },
+    Macros: {
+      N: "\\mathbb{N}",
+      Z: "\\mathbb{Z}",
+      Q: "\\mathbb{Q}",
+      R: "\\mathbb{R}",
+      C: "\\mathbb{C}"
+    }
+  }
+  });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+{% endif %}

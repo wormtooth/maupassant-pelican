@@ -1,0 +1,6 @@
+{% if DISQUS_SHORTNAME %}
+<div class="widget">
+    <div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div>
+    <script type="text/javascript" src="//{{ DISQUS_SHORTNAME }}.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=1&avatar_size=32&excerpt_length=20&hide_mods=1"></script>
+</div>
+{% endif %}

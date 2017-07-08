@@ -1,0 +1,44 @@
+{% if DISQUS_SHORTNAME %}
+{% set ap = article or page %}
+<div id="disqus_thread">
+  <div class="btn_click_load">
+    <button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button>
+  </div>
+  <script>
+    var disqus_shortname = "{{ DISQUS_SHORTNAME }}";
+    var disqus_identifier = "{{ ap.url }}";
+    var disqus_title = "{{ ap.title }}";
+    var disqus_url = "{{ SITEURL }}/{{ ap.url }}";
+    $('.btn_click_load').click(function() {
+      (function() {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || 
+          document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+      $('.btn_click_load').css('display','none');
+    });
+
+    $.ajax({
+      url: 'https://disqus.com/favicon.ico',
+      timeout: 3000,
+      type: 'GET',
+      success: (function() {
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript'; 
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || 
+          document.getElementsByTagName('body')[0]).appendChild(dsq);
+        $('.btn_click_load').css('display','none');
+      })(),
+      error: function() {
+        $('.btn_click_load').css('display','block');
+        }
+      });
+  </script>
+  <script id="dsq-count-scr" src="//{{ DISQUS_SHORTNAME }}.disqus.com/count.js" async></script>
+</div>
+{% endif %}
