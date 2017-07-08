@@ -10,7 +10,7 @@ A pelican theme ported from [maupassant-hexo](https://github.com/tufu9441/maupas
 git clone https://github.com/wormtooth/maupassant-pelican ./maupassant
 ```
 
-Then change/add `THEME` option in `pelicanconf.py` to
+Then change/add `THEME` option in **pelicanconf.py** to
 
 ```python
 THEME = 'maupassant'
@@ -20,8 +20,8 @@ THEME = 'maupassant'
 
 ### Navigation Menu
 
-`MENUITEMS`: It is a list of tuples in the format of
-<center>(title, link, [font-awesome-id](http://fontawesome.io/))</center>
+`MENUITEMS`: It is a list of tuples in the format of (title, link, [font-awesome-id](http://fontawesome.io/))
+
 The default value of `MENUITEMS` is
 
 ```python
@@ -47,7 +47,7 @@ WIDGETS = ['search', 'category', 'tag', 'recent_articles', 'recent_comments', 'l
 - 'recent_comments': show recent 5 comments. Display only if `DISQUS_SHORTNAME` is set.
 - 'links': blogroll. You can customize it via `LINKS`.
 
-You can make your own widgets by creating a corresponding html file in the **template/widgets**folder. Then you can activate it by putting its name into `WIDGETS`.
+You can make your own widgets by creating a corresponding html file in the **template/widgets** folder. Then you can activate it by putting its name into `WIDGETS`.
 
 ### Comments
 
@@ -67,7 +67,7 @@ To disable: `comments: False`
 
 ### Syntax Highlight Style
 
-The default syntax highlight style is `default`. If you want to change the style, you can change the `pygment.css` file in **static/css** folder. See Pelican official [FAQ](http://docs.getpelican.com/en/3.6.3/faq.html#i-m-creating-my-own-theme-how-do-i-use-pygments-for-syntax-highlighting) if you want to use other styles.
+The default syntax highlight style is **default**. If you want to change the style, you can change the **pygment.css** file in **static/css** folder. See Pelican official [FAQ](http://docs.getpelican.com/en/3.6.3/faq.html#i-m-creating-my-own-theme-how-do-i-use-pygments-for-syntax-highlighting) if you want to use other styles.
 
 ### Logo
 
