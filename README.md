@@ -82,3 +82,4 @@ If `<!--more-->` is put somewhere in an article, article content until `<!--more
 - Octopress：[https://github.com/pagecho/mewpassant/](https://github.com/pagecho/mewpassant/)
 - Farbox：[https://github.com/pagecho/Maupassant-farbox/](https://github.com/pagecho/Maupassant-farbox/)
 - Ghost: [https://github.com/LjxPrime/maupassant/](https://github.com/LjxPrime/maupassant/)
+- Hexo: [https://github.com/tufu9441/maupassant-hexo](https://github.com/tufu9441/maupassant-hexo)
