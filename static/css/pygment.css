@@ -3,6 +3,8 @@
     border-left-style: ridge;
     border-left-width: thin;
     padding-left: 10px;
+    font-size: 14px;
+    line-height: 20px;
 }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */

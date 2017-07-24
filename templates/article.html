@@ -11,7 +11,7 @@
     {% endif %}
     </div>
     {% if DISQUS_SHORTNAME and article.comments|lower != 'false' %}
-    <a data-disqus-identifier="{{ article.url }}/" href="/{{ article.url }}#disqus_thread" class="disqus-comment-count"></a>
+    <a data-disqus-identifier="{{ article.url }}" href="/{{ article.url }}#disqus_thread" class="disqus-comment-count"></a>
     {% endif %}
     <div class="post-content">
         {{ article.content }}

@@ -21,4 +21,9 @@
 {% endfor %}
 
 {% include "partials/pagination.html" %}
+
+{% if DISQUS_SHORTNAME %}
+    <script id="dsq-count-scr" src="//{{ DISQUS_SHORTNAME }}.disqus.com/count.js" async></script>
+{% endif %}
+
 {% endblock content %}
