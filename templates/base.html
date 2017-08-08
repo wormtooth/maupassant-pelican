@@ -16,14 +16,14 @@
     {{ SITENAME }}{% if SITESUBTITLE %} | {{ SITESUBTITLE }}{% endif %}
     {% endblock title %}
     </title>
-    <link rel="stylesheet" type="text/css" href="/theme/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/theme/css/pygment.css" />
+    <link rel="stylesheet" type="text/css" href="/{{ THEME_STATIC_DIR }}/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/{{ THEME_STATIC_DIR }}/css/pygment.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/6.0.0/normalize.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css" />
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="Shortcut Icon" type="image/x-icon" href="/theme/favicon.ico" />
+    <link rel="Shortcut Icon" type="image/x-icon" href="/{{ THEME_STATIC_DIR }}/favicon.ico" />
     {% endblock head %}
 </head>
 
@@ -37,9 +37,9 @@
             {% endif %}
         </div>
         <div id="nav-menu">
-            {% set MENUS_TMP = MENUITEMS or (('Home', '.', 'fa-home'), ('Archive', 'archives.html', 'fa-archive')) %}
+            {% set MENUS_TMP = MENUITEMS or (('Home', '/.', 'fa-home'), ('Archive', '/archives.html', 'fa-archive')) %}
             {% for title, link, fa in MENUS_TMP %}
-            <a href="/{{ link }}"><i class="fa {{ fa }}"> {{ title }}</i></a>
+            <a href="{{ link }}"><i class="fa {{ fa }}"> {{ title }}</i></a>
             {% endfor %}
         </div>
     </div>

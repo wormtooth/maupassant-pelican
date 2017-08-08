@@ -25,10 +25,8 @@ THEME = 'maupassant'
 The default value of `MENUITEMS` is
 
 ```python
-MENUITEMS = [('Home', '.', 'fa-home'), ('Archive', 'archives.html', 'fa-archive')]
+MENUITEMS = [('Home', '/.', 'fa-home'), ('Archive', '/archives.html', 'fa-archive')]
 ```
-
-**WARNING**: You should/must always put ('Home', '.', 'fa-home') as a menu item.
 
 ### Widgets
 
@@ -71,7 +69,7 @@ The default syntax highlight style is **default**. If you want to change the sty
 
 ### Logo
 
-The theme can recognize **favicon.ico** in its theme folder. So put your logo in the theme folder if you want to have it used on your website.
+The theme can recognize **favicon.ico** in its `static` folder. So put your logo in the `static` folder if you want to have it used on your website.
 
 ### Summary of Article
 
