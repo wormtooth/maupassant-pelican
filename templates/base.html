@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html land="{{ DEFAULT_LANG }}">
+<html lang="{{ DEFAULT_LANG }}">
 
 <head>
     {% block head %}
@@ -38,13 +38,8 @@
         </div>
         <div id="nav-menu">
             {% set MENUS_TMP = MENUITEMS or (('Home', '.', 'fa-home'), ('Archive', 'archives.html', 'fa-archive')) %}
-            {% set MENUS_URL = MENUS_TMP|map(attribute=1)|list%}
             {% for title, link, fa in MENUS_TMP %}
-            {% if link==output_file or (link=='.' and output_file not in MENUS_URL) %}
-            <a href="/{{ link }}" class="current"><i class="fa {{ fa }}"> {{ title }}</i></a>
-            {% else %}
             <a href="/{{ link }}"><i class="fa {{ fa }}"> {{ title }}</i></a>
-            {% endif %}
             {% endfor %}
         </div>
     </div>
