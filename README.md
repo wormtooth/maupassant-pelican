@@ -53,7 +53,7 @@ Only Disqus commenting system is supported right now.
 
 `DISQUS_SHORTNAME`: It is a string representing your Disqus shortname. 
 
-Comments by default are enabled for articles and are closed for pages. You can enable/disable comments on certain articles or articles by providing `comments` keyword in the front matter. 
+Comments by default are enabled for articles and are closed for pages. You can enable/disable comments on certain articles or pages by providing `comments` keyword in the front matter. 
 
 To enable: `comments: True`
 
